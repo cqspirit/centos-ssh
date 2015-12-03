@@ -6,7 +6,7 @@
 # =============================================================================
 FROM centos:centos6.7
 
-MAINTAINER Ge Yong <geyongnus@gmail.com>
+MAINTAINER jdeathe & Ge Yong <geyongnus@gmail.com>
 
 # -----------------------------------------------------------------------------
 # Import the RPM GPG keys and install Repositories
