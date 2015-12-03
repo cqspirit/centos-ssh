@@ -131,9 +131,12 @@ RUN \
   
 # 
 RUN \
-   git clone --recursive git://github.com/ariya/phantomjs.git
-   cd phantomjs
-   ./build.py 
+   git clone --recursive git://github.com/ariya/phantomjs.git && \
+   cd phantomjs && ./build.py && \
+   chmod a+x ./bin/phantomjs && \
+   cp ./bin/phantomjs /usr/bin/ 
+   
+RUN rm -rm /tmp/*
 # -----------------------------------------------------------------------------
 # Set default environment variables
 # -----------------------------------------------------------------------------
