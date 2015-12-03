@@ -97,6 +97,11 @@ RUN rm -rf /etc/ld.so.cache \
 
 EXPOSE 22
 
+# add cralwer
+ENV CRAW_USER  dc-agent
+ENV CRAW_PW    'rawler@next'
+RUN useradd $CRAW_USER -M -p $CRAW_PW
+    
 # -----------------------------------------------------------------------------
 # Set default environment variables
 # -----------------------------------------------------------------------------
