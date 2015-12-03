@@ -110,7 +110,7 @@ RUN \
   yum clean all
   
 RUN \
-  cd /tmp && \
+  cd /tmp &&yum install tar -y && \
   wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz && \
   tar -xvf setuptools-1.4.2.tar.gz && \
   cd setuptools-1.4.2 && \
