@@ -129,4 +129,9 @@ ENV SSH_USER_PASSWORD ""
 ENV SSH_USER "sixestates"
 ENV SSH_USER_HOME_DIR "/home/sixestates"
 
+# - add log path
+ADD /public/log /tmp
+
+VOLUME ["/opt/crawl", "/opt/crawl"] 
+
 CMD ["/usr/bin/supervisord", "--configuration=/etc/supervisord.conf"]
