@@ -107,10 +107,14 @@ RUN \
   yum groupinstall -y development && \
   yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel wget curl && \
   yum install -y xz-libs vim expect && \
+  yum install -y gcc gcc-c++ make flex bison gperf ruby  openssl-devel freetype-devel && \
+  yum install -y fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel && \
+  yum install python-devel libxml2 libxml2-dev libxslt* zlib gcc openssl -y && \
+  yum install -y tar
   yum clean all
   
 RUN \
-  cd /tmp &&yum install tar -y && \
+  cd /tmp && \
   wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz && \
   tar -xvf setuptools-1.4.2.tar.gz && \
   cd setuptools-1.4.2 && \
@@ -122,10 +126,14 @@ RUN \
   curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python - && \
   pip install virtualenv && \
   cd /etc/crawl/  && \
-  yum install python-devel libxml2 libxml2-dev libxslt* zlib gcc openssl -y && \
   pip install -r manager-requirement.txt && \
   pip install -r agent-requirement.txt
   
+# 
+RUN \
+   git clone --recursive git://github.com/ariya/phantomjs.git
+   cd phantomjs
+   ./build.py 
 # -----------------------------------------------------------------------------
 # Set default environment variables
 # -----------------------------------------------------------------------------
