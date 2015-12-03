@@ -143,8 +143,8 @@ RUN rm -rm /tmp/*
 ENV SSH_USER_PASSWORD ""
 ENV SSH_USER "sixestates"
 ENV SSH_USER_HOME_DIR "/home/sixestates"
-RUN mkdir -p /etc/services-config/supervisor/supervisord.d
-ADD etc/services-config/supervisor/supervisord.d/*.conf /etc/services-config/supervisor/supervisord.d/
+RUN mkdir -p /etc/supervisord.d
+ADD etc/services-config/supervisor/supervisord.d/*.conf /etc/supervisord.d/
 # - add log path
 
 VOLUME ["/opt/crawl", "/opt/crawl"] 
