@@ -131,12 +131,14 @@ RUN \
   
 # 
 RUN \
+   cd /tmp && \
    git clone --recursive git://github.com/ariya/phantomjs.git && \
    cd phantomjs && ./build.py && \
    chmod a+x ./bin/phantomjs && \
    cp ./bin/phantomjs /usr/bin/ 
    
-RUN rm -rm /tmp/*
+RUN \
+   rm -rm /tmp/*
 # -----------------------------------------------------------------------------
 # Set default environment variables
 # -----------------------------------------------------------------------------
@@ -147,7 +149,7 @@ RUN mkdir -p /etc/supervisord.d
 ADD etc/services-config/supervisor/supervisord.d/*.conf /etc/supervisord.d/
 # - add log path
 
-VOLUME ["/opt/crawl", "/opt/crawl"] 
-VOLUME ["/public/log", "/var/log"] 
+#VOLUME ["/opt/crawl", "/opt/crawl"] 
+#VOLUME ["/public/log", "/var/log"] 
 
 CMD ["/usr/bin/supervisord", "--configuration=/etc/supervisord.conf"]
