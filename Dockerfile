@@ -109,8 +109,7 @@ RUN \
   yum install -y xz-libs vim expect && \
   yum install -y gcc gcc-c++ make flex bison gperf ruby  openssl-devel freetype-devel && \
   yum install -y fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel && \
-  yum install python-devel libxml2 libxml2-dev libxslt* zlib openssl -y && \
-  yum install -y tar
+  yum install -y tar python-devel libxml2 libxml2-dev libxslt* zlib openssl -y && \
   yum clean all
   
 RUN \
