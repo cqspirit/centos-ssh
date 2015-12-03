@@ -13,11 +13,11 @@ get_password ()
 	echo $(head -n 4096 /dev/urandom | tr -cd '[:alnum:]' | head -c ${1})
 }
 
-OPTS_SSH_USER_HOME_DIR="${SSH_USER_HOME_DIR:-/home/app-admin}"
+OPTS_SSH_USER_HOME_DIR="${SSH_USER_HOME_DIR:-/home/6estates}"
 
 if [[ ! -d ${OPTS_SSH_USER_HOME_DIR}/.ssh ]]; then
 
-	OPTS_SSH_USER="${SSH_USER:-app-admin}"
+	OPTS_SSH_USER="${SSH_USER:-6estates}"
 	OPTS_SSH_ROOT_PASSWORD="${SSH_ROOT_PASSWORD:-$(get_password 8)}"
 	OPTS_SSH_USER_PASSWORD="${SSH_USER_PASSWORD:-$(get_password 8)}"
 
