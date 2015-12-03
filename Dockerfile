@@ -101,7 +101,27 @@ EXPOSE 22
 ENV CRAW_USER  dc-agent
 ENV CRAW_PW    'rawler@next'
 RUN useradd $CRAW_USER -M -p $CRAW_PW
-    
+
+RUN \
+  yum groups install -y 'Development Tools' && \
+  yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel wget curl && \
+  yum install -y xz-libs vim expect && \
+  yum clean all
+  
+RUN \
+  cd /tmp && \
+  wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz && \
+  tar -xvf setuptools-1.4.2.tar.gz && \
+  cd setuptools-1.4.2 && \
+  python setup.py install
+  
+RUN \
+  curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python - && \
+  pip install virtualenv && \
+  cd /etc/crawl/  && \
+  pip install -r manager-requirement.txt && \
+  pip install -r agent-requirement.txt
+  
 # -----------------------------------------------------------------------------
 # Set default environment variables
 # -----------------------------------------------------------------------------
