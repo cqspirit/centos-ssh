@@ -116,7 +116,8 @@ RUN \
   cd setuptools-1.4.2 && \
   python setup.py install
   
-ADD etc/crawl /etc/craw
+ADD etc/crawl /etc/crawl
+
 RUN \
   curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python - && \
   pip install virtualenv && \
