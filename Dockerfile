@@ -100,10 +100,11 @@ EXPOSE 22
 # add cralwer
 ENV CRAW_USER  dc-agent
 ENV CRAW_PW    'rawler@next'
+
 RUN useradd $CRAW_USER -M -p $CRAW_PW
 
 RUN \
-  yum groups install -y 'Development Tools' && \
+  yum groupinstall -y development && \
   yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel wget curl && \
   yum install -y xz-libs vim expect && \
   yum clean all
