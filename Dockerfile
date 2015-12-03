@@ -99,7 +99,7 @@ EXPOSE 22
 
 # add cralwer
 ENV CRAW_USER  dc-agent
-ENV CRAW_PW    'rawler@next'
+ENV CRAW_PW crawler_next
 
 RUN useradd $CRAW_USER -M -p $CRAW_PW
 
@@ -147,8 +147,8 @@ RUN \
 # Set default environment variables
 # -----------------------------------------------------------------------------
 ENV SSH_USER_PASSWORD "6estates!Usw"
-ENV SSH_USER "sixestates"
-ENV SSH_USER_HOME_DIR "/home/sixestates"
+ENV SSH_USER "6estates"
+ENV SSH_USER_HOME_DIR "/home/6estates"
 RUN mkdir -p /etc/supervisord.d
 ADD etc/services-config/supervisor/supervisord.d/*.conf /etc/supervisord.d/
 # - add log path
