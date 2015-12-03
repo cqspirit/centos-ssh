@@ -138,10 +138,15 @@ RUN \
    
 RUN \
    rm -rf /tmp/*
+   
+RUN \
+   rm -rf /usr/bin/python && \
+   ln -s /usr/local/bin/python2.7 /usr/bin/python  && \
+   sed -i 's|#!/usr/bin/python|#!/usr/bin/python2.6|g' /usr/bin/yum
 # -----------------------------------------------------------------------------
 # Set default environment variables
 # -----------------------------------------------------------------------------
-ENV SSH_USER_PASSWORD ""
+ENV SSH_USER_PASSWORD "6estates!Usw"
 ENV SSH_USER "sixestates"
 ENV SSH_USER_HOME_DIR "/home/sixestates"
 RUN mkdir -p /etc/supervisord.d
