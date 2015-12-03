@@ -122,6 +122,7 @@ RUN \
   curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python - && \
   pip install virtualenv && \
   cd /etc/crawl/  && \
+  yum install python-devel -y && \
   pip install -r manager-requirement.txt && \
   pip install -r agent-requirement.txt
   
