@@ -122,7 +122,7 @@ RUN \
   curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python - && \
   pip install virtualenv && \
   cd /etc/crawl/  && \
-  yum install python-devel -y && \
+  yum install python-devel libxml2 libxml2-dev libxslt* zlib gcc openssl-y && \
   pip install -r manager-requirement.txt && \
   pip install -r agent-requirement.txt
   
