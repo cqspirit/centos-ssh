@@ -101,7 +101,7 @@ EXPOSE 22
 # Set default environment variables
 # -----------------------------------------------------------------------------
 ENV SSH_USER_PASSWORD ""
-ENV SSH_USER "app-admin"
-ENV SSH_USER_HOME_DIR "/home/app-admin"
+ENV SSH_USER "sixestates"
+ENV SSH_USER_HOME_DIR "/home/sixestates"
 
 CMD ["/usr/bin/supervisord", "--configuration=/etc/supervisord.conf"]
