@@ -111,7 +111,16 @@ RUN \
   yum install -y fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel && \
   yum install -y tar python-devel libxml2 libxml2-dev libxslt* zlib openssl -y && \
   yum clean all
-  
+
+RUN \
+   cd /tmp &&rm -rf Python-2.7.6.tar.xz && \
+   wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz && \
+   xz -d Python-2.7.6.tar.xz && \
+   tar -xvf Python-2.7.6.tar && \
+   cd Python-2.7.6 && \
+   ./configure --prefix=/usr/local && \
+   make && make install
+   
 RUN \
   cd /tmp && \
   wget --no-check-certificate https://pypi.python.org/packages/source/s/setuptools/setuptools-1.4.2.tar.gz && \
@@ -129,24 +138,18 @@ RUN \
   pip install -r agent-requirement.txt
   
 # 
-RUN \
-   cd /tmp && \
-   git clone --recursive git://github.com/ariya/phantomjs.git && \
-   cd phantomjs && ./build.py && \
-   chmod a+x ./bin/phantomjs && \
-   cp ./bin/phantomjs /usr/bin/ 
+RUN cd /usr/bin && \
+    wget http://soft.6eimg.com/phantomjs && \
+    chmod a+x phantomjs
+#RUN \
+#   cd /tmp && \
+#   git clone --recursive git://github.com/ariya/phantomjs.git && \
+#   cd phantomjs && ./build.py && \
+#   chmod a+x ./bin/phantomjs && \
+#   cp ./bin/phantomjs /usr/bin/ 
    
 RUN \
    rm -rf /tmp/*
-  
-RUN \
-   cd /tmp &&rm -rf Python-2.7.6.tar.xz && \
-   wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz && \
-   xz -d Python-2.7.6.tar.xz && \
-   tar -xvf Python-2.7.6.tar && \
-   cd Python-2.7.6 && \
-   ./configure --prefix=/usr/local && \
-   make && make install
    
 RUN \
    rm -rf /usr/bin/python && \
